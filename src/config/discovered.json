@@ -10,27 +10,27 @@
   },
   "candidates": {
     "introVideo": [
-      "assets/video/intro.mp4"
+      "Assets/video/intro.mp4"
     ],
     "landingBackground": [
-      "assets/video/landing.png"
+      "Assets/video/landing.png"
     ],
     "mainWorldBackground": [
-      "assets/video/main.mp4"
+      "Assets/video/main.mp4"
     ],
     "playerSkin": [
-      "assets/skins/player.png"
+      "Assets/skins/player.png"
     ],
     "buttonHover": [],
     "buttonClick": [
-      "assets/audio/landing-click.mp3"
+      "Assets/audio/landing-click.mp3"
     ],
     "mainWorldClick": [
-      "assets/audio/main-click.mp3"
+      "Assets/audio/main-click.mp3"
     ],
     "transitionSound": [],
     "backgroundMusic": [
-      "assets/music/c418-aria-math-128-ytshorts.savetube.me.mp3"
+      "Assets/music/c418-aria-math-128-ytshorts.savetube.me.mp3"
     ],
     "pixelFont": [],
     "bodyFont": [],
@@ -38,72 +38,37 @@
   },
   "files": [
     {
-      "source": "assets/audio/.gitkeep",
-      "url": "/managed-assets/assets/audio/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/audio/landing-click.mp3",
+      "source": "Assets/audio/landing-click.mp3",
       "url": "/managed-assets/assets/audio/landing-click.mp3",
       "extension": ".mp3"
     },
     {
-      "source": "assets/audio/main-click.mp3",
+      "source": "Assets/audio/main-click.mp3",
       "url": "/managed-assets/assets/audio/main-click.mp3",
       "extension": ".mp3"
     },
     {
-      "source": "assets/environment/.gitkeep",
-      "url": "/managed-assets/assets/environment/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/fonts/.gitkeep",
-      "url": "/managed-assets/assets/fonts/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/icons/.gitkeep",
-      "url": "/managed-assets/assets/icons/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/music/c418-aria-math-128-ytshorts.savetube.me.mp3",
+      "source": "Assets/music/c418-aria-math-128-ytshorts.savetube.me.mp3",
       "url": "/managed-assets/assets/music/c418-aria-math-128-ytshorts.savetube.me.mp3",
       "extension": ".mp3"
     },
     {
-      "source": "assets/skins/.gitkeep",
-      "url": "/managed-assets/assets/skins/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/skins/player.png",
+      "source": "Assets/skins/player.png",
       "url": "/managed-assets/assets/skins/player.png",
       "extension": ".png"
     },
     {
-      "source": "assets/textures/.gitkeep",
-      "url": "/managed-assets/assets/textures/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/video/.gitkeep",
-      "url": "/managed-assets/assets/video/.gitkeep",
-      "extension": ""
-    },
-    {
-      "source": "assets/video/intro.mp4",
+      "source": "Assets/video/intro.mp4",
       "url": "/managed-assets/assets/video/intro.mp4",
       "extension": ".mp4"
     },
     {
-      "source": "assets/video/landing.png",
+      "source": "Assets/video/landing.png",
       "url": "/managed-assets/assets/video/landing.png",
       "extension": ".png"
     },
     {
-      "source": "assets/video/main.mp4",
+      "source": "Assets/video/main.mp4",
       "url": "/managed-assets/assets/video/main.mp4",
       "extension": ".mp4"
     }

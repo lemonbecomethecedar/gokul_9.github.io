@@ -2,7 +2,16 @@ import { existsSync, mkdirSync, readdirSync, copyFileSync, writeFileSync } from 
 import { resolve, relative, dirname, join, extname } from 'node:path';
 
 const root = process.cwd();
-const sources = ['assets', 'public/assets', 'src/assets', 'public/media', 'media', 'music', 'public/music'];
+const sourceCandidates = ['Assets', 'assets', 'public/assets', 'src/assets', 'public/media', 'media', 'music', 'public/music'];
+const seenSources = new Set();
+const sources = sourceCandidates.filter(source => {
+  const path = resolve(root, source);
+  if (!existsSync(path)) return false;
+  const key = process.platform === 'win32' ? path.toLowerCase() : path;
+  if (seenSources.has(key)) return false;
+  seenSources.add(key);
+  return true;
+});
 const target = resolve(root, 'public/managed-assets');
 const image = /\.(png|jpg|jpeg|webp|gif|avif)$/i;
 const video = /\.(mp4|webm|mov|m4v)$/i;
@@ -33,10 +42,11 @@ const rules = {
 const manifest = { assets: {}, candidates: {}, files: [], missing: [], ambiguous: [] };
 for (const file of files) {
   const rel = relative(root, file).replaceAll('\\', '/');
-  const dest = join(target, rel);
+  const publicRel = rel.replace(/^Assets(?=\/)/, 'assets');
+  const dest = join(target, publicRel);
   mkdirSync(dirname(dest), { recursive: true });
   copyFileSync(file, dest);
-  manifest.files.push({ source: rel, url: '/managed-assets/' + rel.split('/').map(encodeURIComponent).join('/'), extension: extname(file).toLowerCase() });
+  manifest.files.push({ source: rel, url: '/managed-assets/' + publicRel.split('/').map(encodeURIComponent).join('/'), extension: extname(file).toLowerCase() });
 }
 for (const [key, rule] of Object.entries(rules)) {
   const candidates = manifest.files.filter(file => rule.type.test(file.source) && rule.test.test(file.source));
