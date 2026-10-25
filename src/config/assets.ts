@@ -35,7 +35,23 @@ export const overrides: Partial<Record<AssetKey, string>> = {
 
 // Explicitly choose slim arms if the provided skin uses the Alex geometry.
 export const skinConfig: { model: 'classic' | 'slim' } = { model: 'classic' };
-export const assets = { ...discovered.assets, ...overrides } as Partial<Record<AssetKey, string>>;
-export const assetReport: AssetReport = discovered as AssetReport;
+
+const withBase = (url: string) => url.startsWith('/')
+  ? `${import.meta.env.BASE_URL}${url.slice(1)}`
+  : url;
+const report = discovered as AssetReport;
+const discoveredAssets = Object.fromEntries(
+  Object.entries(report.assets).map(([key, url]) => [key, withBase(url)])
+) as Partial<Record<AssetKey, string>>;
+const resolvedOverrides = Object.fromEntries(
+  Object.entries(overrides).map(([key, url]) => [key, withBase(url)])
+) as Partial<Record<AssetKey, string>>;
+
+export const assets = { ...discoveredAssets, ...resolvedOverrides };
+export const assetReport: AssetReport = {
+  ...report,
+  assets,
+  files: report.files.map(file => ({ ...file, url: withBase(file.url) }))
+};
 export const isVideo = (path?: string) => !!path && /\.(mp4|webm|mov|m4v)(\?|$)/i.test(path);
 export const isAnimatedImage = (path?: string) => !!path && /\.gif(\?|$)/i.test(path);

@@ -27,3 +27,9 @@ Use `src/config/assets.ts` to choose `skinConfig.model = 'slim'` for 3-pixel arm
 Edit the real player's biography, hobbies, projects and social profiles in `src/config/content.ts`. Empty projects/socials/hobbies are deliberate; no personal facts or URLs have been fabricated. Without media assets the interface falls back to dark atmospheric gradients, a CSS title, and untextured block character.
 
 Build with `npm run build`. The introduction is session-scoped and can be replayed by opening a new browser tab session or clearing `sessionStorage['mc-intro-seen']` in the browser developer tools. No hover sound, transition sound, background music, font, or standalone logo was found in the supplied assets; those features use quiet or visual fallbacks until the files are supplied.
+
+## GitHub Pages deployment
+
+Pushes to `main` are built and deployed automatically by `.github/workflows/deploy-pages.yml`. In the repository's **Settings → Pages** screen, set **Build and deployment → Source** to **GitHub Actions**. The workflow derives the published base path from the current repository name, so Vite's scripts, styles, and discovered media keep working if the repository is renamed.
+
+GitHub Pages is static hosting. The website itself works there, but the reviews API still needs a separate Node.js host as described above.
