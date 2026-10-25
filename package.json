@@ -1,0 +1,34 @@
+{
+  "name": "minecraft-reimagined",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "assets": "node scripts/discover-assets.mjs",
+    "predev": "npm run assets",
+    "dev": "node ./scripts/dev.mjs",
+    "server": "node --env-file=.env.server ./server/reviews.mjs",
+    "test:reviews": "node --test ./server/reviews.test.mjs",
+    "prebuild": "npm run assets",
+    "build": "node ./node_modules/typescript/bin/tsc -b && node ./node_modules/vite/bin/vite.js build",
+    "preview": "node ./node_modules/vite/bin/vite.js preview"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.1.2",
+    "gsap": "^3.12.7",
+    "nodemailer": "^10.2.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.175.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@types/three": "^0.175.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "typescript": "~5.8.3",
+    "vite": "^6.2.0"
+  }
+}
